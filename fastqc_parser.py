@@ -5,9 +5,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 logger = logging.getLogger(__name__)
 VERSION = 'VERSION: 1.0.0'
 AUTHOR = 'AUTHOR: Aishwarya Rane, aishwaryrane08@gmail.com, 11/03/2023'
-
+DESCRIPTION = 'Script calls fastqc module!'
 logger.info(VERSION)
 logger.info(AUTHOR)
+logger.info(DESCRIPTION)
 def run_job(cmd):
     try:
         subprocess.check_call(cmd, shell=True)
@@ -29,7 +30,7 @@ def main(args):
     logger.info("Done")
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="Run bcftools")
+    parser = argparse.ArgumentParser(description="Run fastqc")
     parser.add_argument("-in_file","--in_file",nargs='+',required=True, help="Input files")
     parser.add_argument("-outdir","--outdir", type=str, help="Output dircteory")
     args = parser.parse_args()
